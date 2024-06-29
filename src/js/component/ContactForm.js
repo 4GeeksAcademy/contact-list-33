@@ -19,18 +19,14 @@ export const ContactForm = ({ contact, contactDelete, contactUpdate}) => {
                     </div>
 
                     <div className="">
-                    <Link 
-                    to={`/edit/${contact.id}`}
-                    className="btn"
-                    style={{ marginRight: '0.5rem' }}
-                    ><i className="btn btn-primary fa fa-edit" aria-hidden="true"></i></Link>
-                        <button 
-                            className="btn"
-                            onClick={() => contactDelete(contact.id)}
-                        >
+                    <Link to={`/edit/${contact.id}`} className="btn" style={{ marginRight: '0.5rem' }}>
+                        <i className="btn btn-primary fa fa-edit" aria-hidden="true"></i>
+                    </Link>
+                        <button className="btn" onClick={() => contactDelete(contact.id)}>
                             <i className="btn btn-danger fa fa-trash"></i>
                         </button>
                     </div>
+                    
                 </div>
             </div>
         </div>
