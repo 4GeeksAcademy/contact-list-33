@@ -2,17 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom"
 import userImagen  from "../../img/balon.jpg";
 
-export const ContactCard = ({ contact, contactDelete, contactUpdate}) => {
+export const ContactForm = ({ contact, contactDelete, contactUpdate}) => {
     return (
-        <div className="">
+        <div  className="card container">
             <li className="list-group-item d-flex">
-                <img src={userImagen} className="img-fluid rounded-circle" alt="profile" />
+            <div className="col-2 container d-flex align-items-center">
+                    <img src={userImagen} className="img-fluid rounded-circle" alt="Contact Image" />
+                </div>
                 <div className="d-flex justify-content-between w-100">
-                    <div className="perfil">
+                    <div className="col-6 card-body m-0 px-5">
                         <h5>{contact.name}</h5>
-                        <p><i className="fa-solid fa-envelope"></i> {contact.email}</p>
-                        <p><i className="fa-solid fa-phone"></i> {contact.phone}</p>
-                        <p><i className="fa-solid fa-location-dot"></i> {contact.address}</p>
+                        <p><i className="fa fa-envelope me-2"></i> {contact.email}</p>
+                        <p><i className="fa fa-phone me-2"></i> {contact.phone}</p>
+                        <p><i className="fa fa-map-marker-alt me-2"></i> {contact.address}</p>
                     </div>
 
                     <div className="">
@@ -20,12 +22,12 @@ export const ContactCard = ({ contact, contactDelete, contactUpdate}) => {
                     to={`/edit/${contact.id}`}
                     className="btn"
                     style={{ marginRight: '0.5rem' }}
-                    ><i className="fa fa-pencil" aria-hidden="true"></i></Link>
+                    ><i className="btn btn-primary fa fa-edit" aria-hidden="true"></i></Link>
                         <button 
                             className="btn"
                             onClick={() => contactDelete(contact.id)}
                         >
-                            <i className="fa-solid fa-trash"></i>
+                            <i className="btn btn-danger fa fa-trash"></i>
                         </button>
                     </div>
                 </div>
