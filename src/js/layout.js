@@ -1,12 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
 import { AddContact } from "./views/AddContact.js";
 import { Contact } from "./views/Contact.js";
 import injectContext from "./store/appContext";
-
 import { EditContact } from "./views/EditContact.js";
+import { Footer } from "./component/footer";
 
 //create your first component
 const Layout = () => {
@@ -19,11 +18,12 @@ const Layout = () => {
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Routes>
-						<Route path="/" element={ <AddContact />} />
-						<Route path="/demo" element={<Contact />} />
+						<Route path="/AddContact" element={ <AddContact />} />
+						<Route path="/" element={<Contact />} />
 						<Route path="/edit/:id" element={<EditContact />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
+					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

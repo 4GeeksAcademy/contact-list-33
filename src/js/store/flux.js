@@ -4,38 +4,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 			contactos: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
+			
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
 			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+				
 			},
 			changeColor: (index, color) => {
-				//get the store
+			
 				const store = getStore();
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
+				
 				const demo = store.demo.map((elm, i) => {
 					if (i === index) elm.background = color;
 					return elm;
 				});
 
-				//reset the global store
+				
 				setStore({ demo: demo });
 			},
+
+			
 			fetchContactos: async () => {
 				try {
-					const response = await fetch("https://playground.4geeks.com/contact/agendas/matischlegel/contacts")
+					const response = await fetch("https://playground.4geeks.com/contact/agendas/huber0018/contacts")
 					if (response.status === 404) {
                         await getActions().createUser();
                         await getActions().fetchContactos();
                     }
 					if (response.ok == false) {
-						throw new Error("Levante un error en response")
+						throw new Error("Error en contacto")
 					}
 					const data = await response.json();
 					console.log(data)
@@ -44,10 +43,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error)
 				}
 			},
+
+
 			addContact: async (contact) => {
 				try{
 					console.log(contact)
-					const response = await fetch("https://playground.4geeks.com/contact/agendas/matischlegel/contacts", {
+					const response = await fetch("https://playground.4geeks.com/contact/agendas/huber0018/contacts", {
 						method: "POST",
 						body: JSON.stringify(contact),
 						headers: {
@@ -55,7 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 					if (response.ok == false) {
-						throw new Error("Levante un error en response")
+						throw new  "Error al crear contacto"
 					}
 
 					const data = await response.json()
@@ -65,9 +66,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error)
 				}
 			},
+			
 			updateContact: async (updatedContact) => {
                 try {
-                    const response = await fetch(`https://playground.4geeks.com/contact/agendas/matischlegel/contacts/${updatedContact.id}`, {
+                    const response = await fetch(`https://playground.4geeks.com/contact/agendas/huber0018/contacts/${updatedContact.id}`, {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json'
@@ -83,13 +85,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error)
 				}
             },
+			
 			deleteContact: async (id) => {
 				try {
-					const response = await fetch(`https://playground.4geeks.com/contact/agendas/matischlegel/contacts/${id}`, {
+					const response = await fetch(`https://playground.4geeks.com/contact/agendas/huber0018/contacts/${id}`, {
 						method: "DELETE"
 					})
 					if (response.ok == false) {
-						throw new Error("Levante un error en response")
+						throw new "No se pudo eliminar contacto"
 					}
 					
 					const contactDelete = getStore().contactos.filter(contact => contact.id !== id)
@@ -99,9 +102,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.log(error)
 				}
 			},
+
 			createUser: async (contact) => {
 				try {
-					const response = await fetch("https://playground.4geeks.com/contact/agendas/matischlegel", {
+					const response = await fetch("https://playground.4geeks.com/contact/agendas/huber0018", {
 						method: "POST",
 						body: JSON.stringify(contact),
 						headers: {
@@ -109,7 +113,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					})
 						if (!response.ok) {
-							throw new Error("Levante un error")
+							throw new Error
 						}
 					} catch(error) {
 					console.log(error)

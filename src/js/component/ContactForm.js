@@ -9,9 +9,10 @@ export const ContactForm = ({ contact, contactDelete, contactUpdate}) => {
             <div className="col-2 container d-flex align-items-center">
                     <img src={userImagen} className="img-fluid rounded-circle" alt="Contact Image" />
                 </div>
+                
                 <div className="d-flex justify-content-between w-100">
                     <div className="col-6 card-body m-0 px-5">
-                        <h5>{contact.name}</h5>
+                        <h3>{contact.name}</h3>
                         <p><i className="fa fa-envelope me-2"></i> {contact.email}</p>
                         <p><i className="fa fa-phone me-2"></i> {contact.phone}</p>
                         <p><i className="fa fa-map-marker-alt me-2"></i> {contact.address}</p>
