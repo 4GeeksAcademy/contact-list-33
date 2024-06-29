@@ -5,7 +5,7 @@ import userImagen  from "../../img/balon.jpg";
 export const ContactForm = ({ contact, contactDelete, contactUpdate}) => {
     return (
         <div  className="card container">
-            <li className="list-group-item d-flex">
+            <div className="d-flex">
             <div className="col-2 container d-flex align-items-center">
                     <img src={userImagen} className="img-fluid rounded-circle" alt="Contact Image" />
                 </div>
@@ -31,7 +31,7 @@ export const ContactForm = ({ contact, contactDelete, contactUpdate}) => {
                         </button>
                     </div>
                 </div>
-            </li>
+            </div>
         </div>
     );
 };

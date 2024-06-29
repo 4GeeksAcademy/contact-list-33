@@ -37,10 +37,10 @@ export const EditContact = () => {
 
     return (
         <React.Fragment>
-            <div className="vh-100 d-flex align-items-center">
-            <div className="containerAddContact col-12">
-            <h1 className="titulo d-flex justify-content-center">Edit Contact</h1>
-            <div className="input p-5">
+            <div className="container">
+            <div className="justify-content-center align-items-center fs-1 col-12">
+            <h1  className="tituloAddContact d-flex justify-content-center">Edit Contact</h1>
+            
                 <label htmlFor="fullname">
                     <h6>Full name</h6>
                 </label>
@@ -85,15 +85,13 @@ export const EditContact = () => {
                     value={address}
                     onChange={(e) => setAddress(e.target.value)} 
                 /> 
-            </div>
-            <div className="d-flex justify-content-center">
-                <Link 
-                    to= "/"
-                     className="btn btn-success"
-                     onClick={handleSubmit}
-                     > Save Contact </Link>
-            </div>
-            </div>
+            
+            
+            <button type="button" className="btn btn-primary w-100" onClick={handleSubmit}>Save</button>
+                <Link to="/">
+                    <button className="btn btn-secondary w-100 mt-2">Back to contacts</button>
+                </Link>
+                </div>
             </div>
         
         </React.Fragment>
